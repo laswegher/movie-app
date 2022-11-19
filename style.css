@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+:root{
+    --clr-primary: #373b69;
+    --clr-secondary: #22254b;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--clr-secondary);
+    color: #fff;
+    font-weight: 400;
+}
+
+.d-flex{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+}
+/*===========
+ LOGO 
+===========*/
+.logo{
+    position: relative;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    padding: 0 .5em;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+}
+.logo::before{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #fff;
+    width: 80%;
+    height: 2px;
+}
+.logo::after{
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #fff;
+    width: 80%;
+    height: 2px;
+}
+
+
+/*===========
+LAYOUT 
+===========*/
+
+.container.d-flex{
+    justify-content: space-between;
+}
+
+.container{
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+main {
+    padding: 4em 0 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+.container .movie-card{
+    position: relative;
+    width: 275px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border-radius: 5px;
+    height: 550px;
+}
+.movie-card img{
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+}
+.movie-card .detail{
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    background-color: var(--clr-primary);
+    min-height: 100px;
+}
+.movie-card .detail .movie-title,
+.movie-card .detail .imdb-score{
+    display: flex;
+    align-items: center;
+}
+
+.movie-card .detail .description{
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    background-color: rgba(255, 255, 255, .6);
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    padding: 1.5em;
+    transition: .4s;
+}
+.movie-card:hover img,
+.movie-card:hover .detail .movie-title,
+.movie-card:hover .detail .imdb-score{
+    filter: blur(4px);
+}
+
+
+.movie-card:hover .detail .description{
+    bottom: 0%;
+}
+.movie-card .detail .description h2{
+    margin: 0 0 .5em;
+    color: #000;
+}
+.movie-card .detail .description p{
+    font-size: .9rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #202020;
+    
+}
+.movie-card .detail .movie-title{
+    flex: 1;
+}
+.movie-card .detail .imdb-score{
+    font-size: 1.1rem;
+    background-color: var(--clr-secondary);
+    padding: .4em .6em;
+    border-radius: 5px;
+}
+
+.imdb-score.green{
+    color: lightgreen;
+}
+.imdb-score.yellow{
+    color: orange;
+}
+.imdb-score.red{
+    color: red;
+}
+
+/* Header */
+header{
+    background-color: var(--clr-primary);
+    padding: 2em;
+    user-select: none;
+}
+
+header input{
+    font-size: 1.1rem;
+    font-family: inherit;
+    color: #fff;
+    background-color: transparent;
+    padding: .6em 2.5rem;
+    border: 2px solid var(--clr-secondary);
+    border-radius: 1em; 
+}
+header input:focus{
+    outline: none;
+    background-color: var(--clr-secondary)
+}
+header input::placeholder{
+    color: #7378c5;
+    font-weight: 500;
+}
+
+/* Footer */
+footer{
+    height: 10vh;
+    background-color: var(--clr-primary);
+    text-align: center;
+    padding: 1.5em;
+}
+
+footer p{
+    font-size: .8rem;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+
+.load-more-container{
+    margin: 2em 0 0 ;
+}
+.load-more-container button{
+    font-weight: 600;
+    color: #fff;
+    background-color: var(--clr-secondary);
+    padding: .6em 1.2em;
+    border-radius: 5px;
+    border-color: #fff;
+    cursor: pointer;
+    transition: .2s linear;
+}
+.load-more-container button:hover{
+    transform: scale(1.1);
+}
+
+
+
+/*===========
+MEDIA QUERIES 
+===========*/
+
+@media (max-width: 600px){
+    header .d-flex{
+        flex-direction: column;
+        gap: 2em;
+    }
+}
